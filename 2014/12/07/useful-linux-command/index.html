@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>有用的Linux命令 | Visky&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="学习总结 思考感悟 知识管理 C语言 Linux Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="有用的Linux命令">
+<meta property="og:url" content="http://visky.org/2014/12/07/useful-linux-command/">
+<meta property="og:site_name" content="Visky's blog">
+<meta property="og:description" content="学习总结 思考感悟 知识管理 C语言 Linux Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="有用的Linux命令">
+<meta name="twitter:description" content="学习总结 思考感悟 知识管理 C语言 Linux Python">
+<link rel="publisher" href="lengxingsky">
+
+  
+    <link rel="alternative" href="/atom.xml" title="Visky&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Visky&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Live as if you were to die tomorrow. Learn as if you were to live forever.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-github-link" class="nav-icon" href="https://github.com/lengxingsky" title="Github" target="_blank"></a>
+        
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" target="_blank"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://visky.org"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-useful-linux-command" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+<a href="/2014/12/07/useful-linux-command/" class="article-date">
+  <time datetime="2014-12-07T14:35:40.000Z" itemprop="datePublished">2014-12-7</time>
+</a>
+
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      有用的Linux命令
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+		
+        <p>Linux系统最强大的就是Linux的命令行，巧妙的利用命令行我们可以完成复杂的任务，还可以自动执行任务而不需我们坐在电脑前。<br><a id="more"></a></p>
+<h1 id="Linux命令的几个小技巧">Linux命令的几个小技巧</h1>
+<h2 id="查看ASCII码值">查看ASCII码值</h2>
+<p>有时候我们需要知道一个字符的ASCII码值，到处去找书去查找的话太麻烦了，而且还不一定找到，这里有两个方法可以用shell就可以查到。<br>1 . 用echo命令和od命令，这种方法适合查看单个字符的ASCII码值，比如我们要查看B的ASCII码值</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> -n B | od -An -t d</div></pre></td></tr></table></figure>
+
+<p>具体含义请查看man手册<br>2 . 直接用man手册，适合查看多个字符的ASCII码值</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">man <span class="keyword">ascii</span></div></pre></td></tr></table></figure>
+
+<h2 id="进制间的转换">进制间的转换</h2>
+<ul>
+<li>十进制转为其它进制，比如我们想知道十进制7的二进制值</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="string">"obase=2;7"</span> | bc</div></pre></td></tr></table></figure>
+
+<p><strong><em>obase=要转换成的进制;要转换的十进制值</em></strong></p>
+<ul>
+<li>其它进制转化为十进制，比如我们想知道十六进制0xef的十进制值</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> $((<span class="number">16</span><span class="comment">#ef))</span></div></pre></td></tr></table></figure>
+
+<p>或</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> $((<span class="number">0</span>xef))</div></pre></td></tr></table></figure>
+
+<p><strong><em>$((转换的数的进制#转换的数的值))</em></strong></p>
+<h2 id="对于特殊的文件名的操作">对于特殊的文件名的操作</h2>
+<p>有些人专门把文件名搞的很特殊，对我们操作文件造成不便，如果这样的文件很少的话，我们可以在图形界面解决，但多了的话就必须写脚本处理，所以我们需要知道这样的问题的命令行解决方法。<br>有些这样的文件我们可以找出其中的独特的字符，然后用通配符搞定，但是有些用通配符搞不定，比如- - - - - - - - -.txt<br>我们要是直接用<code>rm 或 vi</code>对其进行操作的话，它的文件名就被识别为命令的选项，导致操作的失败，简单的解决方法：<br>假如- - - - - - - - -.txt在/home/john/text/目录下，我们可以文件名前加一层路径或直接写绝对路径即可解决，如：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm <span class="regexp">/home/</span>john<span class="regexp">/text/</span>---------.txt</div></pre></td></tr></table></figure>
+
+<p>一个操作任意特殊文件名的文件的通用方法<br>先找出该文件的inode号码，用下面这条命令：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ls</span> -<span class="keyword">i</span></div></pre></td></tr></table></figure>
+
+<p>然后根据inode号码，用find找出该文件直接对其进行操作，例如我们要删除它：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="input"><span class="prompt">find . -inum &lt;inode号码&gt;</span> -exec rm <span class="string">'{}'</span> \;</span></div></pre></td></tr></table></figure>
+
+<p>不太了解inode的同学可以看看<a href="http://www.ruanyifeng.com/blog/2011/12/inode.html" target="_blank" rel="external">这篇博文</a></p>
+<h2 id="源码安装软件时的依赖问题">源码安装软件时的依赖问题</h2>
+<p>我们在用源码安装软件时，多数情况下会出现缺少某个共享库的问题，我们可以用下面的命令找出该共享库所在的软件包，然后安装之。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum provides <span class="tag">&lt;<span class="title">缺少的共享库</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<h2 id="查找Linux命令的源代码">查找Linux命令的源代码</h2>
+<p>有时我们想知道我们感兴趣的Linux命令的源代码，看看它是如何实现的，这也是Linux最大的好处，开源！<br>要找它的源代码，有三步，以find命令为例：<br>1 . 找出find命令的绝对路径</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">which <span class="keyword">find</span></div></pre></td></tr></table></figure>
+
+<p>2 . 找出find命令所在的软件包</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -qf <span class="tag">&lt;<span class="title">第一步找到的路径</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<p>前两步可以合成一条命令：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -qf $(which <span class="keyword">find</span>)</div></pre></td></tr></table></figure>
+
+<p>3 .在<a href="https://www.gnu.org/" target="_blank" rel="external">这里</a>搜索它的软件包并下载之。<br><strong>注意：在搜索时先不要带版本号，找到软件包后下载想要的版本号</strong><br>解压该软件包后即可找到find的源文件。</p>
+<h2 id="智能的tar命令">智能的tar命令</h2>
+<p>我们在用tar命令解开用tar打包的压缩文件时，一般都要根据不同的压缩选项来解包，有稍许的麻烦，我们可以用下面的命令，tar会自动判断tar包的压缩方法并解包</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar xvf <span class="tag">&lt;<span class="title">tar包</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<p><strong>注意：xvf前没有-</strong></p>
+<hr>
+<h1 id="Linux命令行的快捷操作">Linux命令行的快捷操作</h1>
+<p><code>!$</code> 引用上一条命令的最后一个参数<br><code>!^</code> 引用上一条命令的第一个参数<br><code>!:2</code> 引用上一条命令的第二个参数<br><code>!:2-4</code> 引用上一条命令的第二，三，四个参数<br>对于emacs编辑模式的bash的快捷键：<br>查看自己的bash是否是emacs编辑模式</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">shopt</span> -o emacs</div></pre></td></tr></table></figure>
+
+<p><code>Ctrl-u</code> 删除光标到命令行的开始处<br><code>Ctrl-k</code> 删除光标到命令行的结尾处<br><code>Ctrl-w</code> 删除光标的前一个单词<br><code>Ctrl-r</code> 输入命令的关键字，可逆向查找使用过的匹配关键字的命令<br><code>Ctrl-j</code> 执行命令相当于enter<br><code>Ctrl-l</code> 清屏</p>
+<hr>
+<p>上面的命令都是比较简单的。<br>Linux有着各式各样的命令及选项，一些特别强大的如：<code>grep  find sed awk ...</code>，配合 |、&gt;、&amp;&amp;、||，可以搭配出功能强大的命令。shell脚本还可以让我们不用坐在电脑前自动执行命令，在Linux下只要肯思考一切都变得简单高效。</p>
+<p></p><p style="color : red;text-align: center;font-style: italic;font-weight: bold">(转载本站文章，请注明作者和出处<a href="http://visky.org/2014/12/07/useful-linux-command/" target="_blank" rel="external">Visky-visky.org</a>,请勿用于任何商业用途)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+	  
+	  <!-- 百度分享 Start -->
+	  <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+	  <!-- 百度分享 End -->
+	  
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+	  
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2014/12/02/Vim/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">Vim的使用和配置</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+
+<!-- 多说评论框 start -->
+
+<section id="comments">
+  <div class="ds-thread"  data-thread-key="/2014/12/07/useful-linux-command/" data-title="有用的Linux命令" data-url="http://visky.org/2014/12/07/useful-linux-command/" id="ds_thread">
+    <noscript>Please enable JavaScript to view the <a href="//duoshuo.com/?ref_noscript">comments powered by duoshuo.</a></noscript>
+  </div>
+</section>
+
+<!-- 多说评论框 end -->
+</section>
+        
+          
+  <div id="toc" class="toc-aside">
+  <h2 class="toc-title">文章目录</h2>
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux命令的几个小技巧"><span class="toc-number">1.</span> <span class="toc-text">Linux命令的几个小技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#查看ASCII码值"><span class="toc-number">1.1.</span> <span class="toc-text">查看ASCII码值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进制间的转换"><span class="toc-number">1.2.</span> <span class="toc-text">进制间的转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对于特殊的文件名的操作"><span class="toc-number">1.3.</span> <span class="toc-text">对于特殊的文件名的操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码安装软件时的依赖问题"><span class="toc-number">1.4.</span> <span class="toc-text">源码安装软件时的依赖问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查找Linux命令的源代码"><span class="toc-number">1.5.</span> <span class="toc-text">查找Linux命令的源代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#智能的tar命令"><span class="toc-number">1.6.</span> <span class="toc-text">智能的tar命令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux命令行的快捷操作"><span class="toc-number">2.</span> <span class="toc-text">Linux命令行的快捷操作</span></a></li></ol>
+    
+  </div>
+
+<aside id="sidebar">
+
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C语言/">C语言</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C语言/" style="font-size: 13.00px; color: #7dc3de;">C语言</a><a href="/tags/Hexo/" style="font-size: 13.00px; color: #7dc3de;">Hexo</a><a href="/tags/Linux/" style="font-size: 20.00px; color: #1db400;">Linux</a>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/12/07/useful-linux-command/">有用的Linux命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/12/02/Vim/">Vim的使用和配置</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/27/路由器安全设置/">路由器安全设置</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/23/C语言-main函数/">C语言main()函数详解</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/20/Hexo/">用Hexo和github搭建个人独立博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+    
+<div class="widget-wrap">
+  <h3 class="widget-title">最新评论</h3>
+  <ul class="widget ds-recent-comments" data-num-items="5" data-show-avatars="0" data-show-title="1" data-show-time="1"></ul>
+</div>
+<!-- 需要多说的公用代码 -->
+
+
+  
+    
+<div class="widget-wrap">
+  <h3 class="widget-title">友情链接</h3>
+  <ul class="widget">
+    
+    <li><a href="http://yibo.iyiyun.com/js/yibo404/key/1" target="_BLANK">404 page</a></li>
+    
+  </ul>
+</div>
+
+
+  
+
+</aside>
+
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Visky<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/howiefh/hexo-theme-landscape-f" target="_blank" title="Landscape-F">Landscape-F</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav>
+    
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"visky"};
+  (function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+<!-- 多说公共JS代码 end -->
+
+<!-- 百度分享 start -->
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":["mshare","douban","bdysc","sqq","qq","hi","baidu","huaban","youdao","sdo","mail","xg","diandian","fx","copy","print"],"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+<!--
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.min.js"></script>
+-->
+<script src="/js/jquery.min.js" type="text/javascript"></script>
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<div class="bottom-btn">
+
+	<a class="icon-gotop" href="javascript:void(0)" title="返回顶部"></a>
+	<script src="/js/gotop.js" type="text/javascript"></script>
+
+	<!--
+	<script src="/js/gotop.js"></script>
+	-->
+
+
+	<a class="icon-toc-toggle" href="javascript:void(0)" title="文章目录"></a>
+	<!--
+	<script src="/js/toc_aside_toggle.js"></script>
+	-->
+
+</div>
+<script src="/js/toc_aside_toggle.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>用Hexo和github搭建个人独立博客 | Visky&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="学习总结 思考感悟 知识管理 C语言 Linux Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用Hexo和github搭建个人独立博客">
+<meta property="og:url" content="http://visky.org/2014/11/20/Hexo/">
+<meta property="og:site_name" content="Visky's blog">
+<meta property="og:description" content="学习总结 思考感悟 知识管理 C语言 Linux Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用Hexo和github搭建个人独立博客">
+<meta name="twitter:description" content="学习总结 思考感悟 知识管理 C语言 Linux Python">
+<link rel="publisher" href="lengxingsky">
+
+  
+    <link rel="alternative" href="/atom.xml" title="Visky&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Visky&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Live as if you were to die tomorrow. Learn as if you were to live forever.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-github-link" class="nav-icon" href="https://github.com/lengxingsky" title="Github" target="_blank"></a>
+        
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" target="_blank"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://visky.org"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Hexo" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+<a href="/2014/11/20/Hexo/" class="article-date">
+  <time datetime="2014-11-20T06:38:51.000Z" itemprop="datePublished">2014-11-20</time>
+</a>
+
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      用Hexo和github搭建个人独立博客
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+		
+        <p>早就想搭建一个自己的博客了，但是由于种种原因一直没有行动，前段时间看到可以用github和hexo搭建个人博客，觉得简单、易上手，然后在网上搜了下教程，搭建了自己的博客。简单说说我搭建的过程，顺便熟悉一下<strong>Markdown</strong>使用。<br><a id="more"></a></p>
+<h3 id="安装npm">安装npm</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> yum install npm</div></pre></td></tr></table></figure>
+
+<h3 id="安装Node-js">安装Node.js</h3>
+<p>在<a href="http://nodejs.org/download/" target="_blank" rel="external">这里</a>可以下载到编译过的包。</p>
+<h3 id="安装hexo">安装hexo</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="operator"><span class="keyword">install</span> hexo -g</span></div></pre></td></tr></table></figure>
+
+<h3 id="配置hexo">配置hexo</h3>
+<p>创建一个放博客内容的文件夹<br>执行：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo <span class="keyword">init</span> 你的文件夹</div></pre></td></tr></table></figure>
+
+<p>Hexo下的_config.yml文件是对整个博客的配置<br>themes下的_config.yml文件是对主题风格的配置<br>修改Hexo下的_config.yml</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">   <span class="built_in">type</span>: github</div><div class="line">   repository: git@github.com:你的用户名/你的用户名.github.<span class="built_in">io</span>.git</div><div class="line">   branch: master</div></pre></td></tr></table></figure>
+
+<p>执行：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="title">hexo</span> g</div><div class="line">hexo d</div></pre></td></tr></table></figure>
+
+<p>现在就可以用 <strong>你的用户名/github.com</strong> 访问你的博客了</p>
+<h3 id="绑定你的域名">绑定你的域名</h3>
+<ol>
+<li>你得有个域名    （没有的建议到<a href="https://www.godaddy.com/" target="_blank" rel="external">godaddy</a>申请） </li>
+<li>在source文件夹下建一个文件名为<strong><em>CNAME</em></strong>内容为<strong><em>你的域名.com</em></strong></li>
+<li>在你域名服务商添加一条CNAME记录，记录类型为<strong>CNAME</strong>,记录值为<strong>你的用户名.github.io.</strong>。</li>
+<li>执行 <strong>hexo d</strong></li>
+</ol>
+<p>搭建好博客后，试了n多主题，都觉的不是特别符合自己的想法，奈何自己有对Web前端知之甚少，无法写出自己的主题，最后选择了<strong>landscape-f</strong>这款主题。这款主题简洁，可以方便的对主题进行微调。<br>执行这条命令安装：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/howiefh/hexo-theme-landscape-<span class="keyword">f</span>.git themes/landscape-<span class="keyword">f</span></div></pre></td></tr></table></figure>
+
+<p>更多关于博客的优化参考<a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="external">这篇博客</a><br>更多关于Hexo的信息在<a href="http://hexo.io/docs/" target="_blank" rel="external">这里</a></p>
+<p></p><p style="color : red;text-align: center;font-style: italic;font-weight: bold">(转载本站文章，请注明作者和出处<a href="http://visky.org/2014/11/20/Hexo" target="_blank" rel="external">Visky-visky.org</a>,请勿用于任何商业用途)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+	  
+	  <!-- 百度分享 Start -->
+	  <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+	  <!-- 百度分享 End -->
+	  
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+
+	  
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/11/23/C语言-main函数/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          C语言main()函数详解
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+
+  
+</article>
+
+
+
+<!-- 多说评论框 start -->
+
+<section id="comments">
+  <div class="ds-thread"  data-thread-key="/2014/11/20/Hexo/" data-title="用Hexo和github搭建个人独立博客" data-url="http://visky.org/2014/11/20/Hexo/" id="ds_thread">
+    <noscript>Please enable JavaScript to view the <a href="//duoshuo.com/?ref_noscript">comments powered by duoshuo.</a></noscript>
+  </div>
+</section>
+
+<!-- 多说评论框 end -->
+</section>
+        
+          
+  <div id="toc" class="toc-aside">
+  <h2 class="toc-title">文章目录</h2>
+    
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装npm"><span class="toc-number">1.</span> <span class="toc-text">安装npm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Node-js"><span class="toc-number">2.</span> <span class="toc-text">安装Node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装hexo"><span class="toc-number">3.</span> <span class="toc-text">安装hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置hexo"><span class="toc-number">4.</span> <span class="toc-text">配置hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绑定你的域名"><span class="toc-number">5.</span> <span class="toc-text">绑定你的域名</span></a></li></ol>
+    
+  </div>
+
+<aside id="sidebar">
+
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C语言/">C语言</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C语言/" style="font-size: 13.00px; color: #7dc3de;">C语言</a><a href="/tags/Hexo/" style="font-size: 13.00px; color: #7dc3de;">Hexo</a><a href="/tags/Linux/" style="font-size: 20.00px; color: #1db400;">Linux</a>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/12/07/useful-linux-command/">有用的Linux命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/12/02/Vim/">Vim的使用和配置</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/27/路由器安全设置/">路由器安全设置</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/23/C语言-main函数/">C语言main()函数详解</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/20/Hexo/">用Hexo和github搭建个人独立博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+    
+<div class="widget-wrap">
+  <h3 class="widget-title">最新评论</h3>
+  <ul class="widget ds-recent-comments" data-num-items="5" data-show-avatars="0" data-show-title="1" data-show-time="1"></ul>
+</div>
+<!-- 需要多说的公用代码 -->
+
+
+  
+    
+<div class="widget-wrap">
+  <h3 class="widget-title">友情链接</h3>
+  <ul class="widget">
+    
+    <li><a href="http://yibo.iyiyun.com/js/yibo404/key/1" target="_BLANK">404 page</a></li>
+    
+  </ul>
+</div>
+
+
+  
+
+</aside>
+
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Visky<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/howiefh/hexo-theme-landscape-f" target="_blank" title="Landscape-F">Landscape-F</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav>
+    
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"visky"};
+  (function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+<!-- 多说公共JS代码 end -->
+
+<!-- 百度分享 start -->
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":["mshare","douban","bdysc","sqq","qq","hi","baidu","huaban","youdao","sdo","mail","xg","diandian","fx","copy","print"],"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+<!--
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.min.js"></script>
+-->
+<script src="/js/jquery.min.js" type="text/javascript"></script>
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<div class="bottom-btn">
+
+	<a class="icon-gotop" href="javascript:void(0)" title="返回顶部"></a>
+	<script src="/js/gotop.js" type="text/javascript"></script>
+
+	<!--
+	<script src="/js/gotop.js"></script>
+	-->
+
+
+	<a class="icon-toc-toggle" href="javascript:void(0)" title="文章目录"></a>
+	<!--
+	<script src="/js/toc_aside_toggle.js"></script>
+	-->
+
+</div>
+<script src="/js/toc_aside_toggle.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>
