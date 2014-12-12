@@ -129,7 +129,7 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ls</span> -<span class="keyword">i</span></div></pre></td></tr></table></figure>
 
 <p>然后根据inode号码，用find找出该文件直接对其进行操作，例如我们要删除它：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="input"><span class="prompt">find . -inum &lt;inode号码&gt;</span> -exec rm <span class="string">'{}'</span> \;</span></div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="input"><span class="prompt">find . -inum &lt;inode号码&gt;</span> -exec rm {} \;</span></div></pre></td></tr></table></figure>
 
 <p>不太了解inode的同学可以看看<a href="http://www.ruanyifeng.com/blog/2011/12/inode.html" target="_blank" rel="external">这篇博文</a></p>
 <h2 id="源码安装软件时的依赖问题">源码安装软件时的依赖问题</h2>
